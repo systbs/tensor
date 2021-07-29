@@ -46,7 +46,7 @@ class Tensor<T extends number> extends Array<T>{
 		return response;
 	}
 	norm(): T {
-		return Math.sqrt(this.reduce((r, v) => Math.pow(v, 2), 0)) as T;
+		return Math.sqrt(this.reduce((r, v) => r + Math.pow(v, 2), 0)) as T;
 	}
 	multiple(t: T): Tensor<T> {
 		return this.map<T>((a) => (a * t) as T) as Tensor<T>;
